@@ -1,5 +1,7 @@
 package com.promo.engine;
 
+import java.util.List;
+
 public interface Promotion {
-    public double apply();
+    public Cart apply(List<Promotion> promotions, Cart cart);
 }
