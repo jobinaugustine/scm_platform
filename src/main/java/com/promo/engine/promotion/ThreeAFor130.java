@@ -33,8 +33,8 @@ public class ThreeAFor130 implements Promotion {
                     promotionTotal = ((promoQty) * 130) + (reminder * price);
                     discount = (qty*price) - promotionTotal;
 
-                    logger.debug("promotion total : " + promotionTotal);
-                    logger.debug("promotion discount : " + discount);
+                    logger.debug("ThreeAFor130 promotion total : [{}] " , promotionTotal);
+                    logger.debug("ThreeAFor130 promotion discount : [{}]" , discount);
 
                     cart.setDiscount(discount);
                     cart.setTotal(total-discount);
