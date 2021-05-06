@@ -18,24 +18,28 @@ public class ThreeAFor130 implements Promotion {
     public Cart apply(Cart cart) {
 
         List<CartItem> cartItems = cart.getItems();
-        double total = 0;
-        double discount = 0;
+
+        double discount = cart.getDiscount();
+        double total = cart.getTotal();
+
         for(CartItem cartItem: cartItems){
+            double promotionTotal = 0;
             if(cartItem.getItem().getId().equals("A")){
                 int qty = cartItem.getQty();
                 double price = cartItem.getItem().getPrice();
                 int promoQty = qty/3;
                 int reminder = qty%3;
                 if(qty/3 > 0){ //here we can apply promotion
-                    total = ((promoQty) * 130) + (reminder * price);
-                    discount = (qty*price) - total;
+                    promotionTotal = ((promoQty) * 130) + (reminder * price);
+                    discount = (qty*price) - promotionTotal;
 
-                    logger.debug("promotion total : " + total);
+                    logger.debug("promotion total : " + promotionTotal);
                     logger.debug("promotion discount : " + discount);
-                    cart.setDiscount(discount);
-                    cart.setTotal(total);
-                }
 
+                    cart.setDiscount(discount);
+                    cart.setTotal(total-discount);
+                }
+                //assuming same item's quantity will get summed into one single item
                 break;
             }
         }

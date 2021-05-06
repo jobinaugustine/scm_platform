@@ -42,6 +42,18 @@ public class ThreeAFor130Test {
     }
 
     @Test
+    public void cartWith3A1B1C(){
+        Cart cart = new Cart(promotions);
+        cart.add(new CartItem(a,3));
+        cart.add(new CartItem(b,1));
+        cart.add(new CartItem(c,1));
+
+        cart.applyPromotion();
+
+        Assertions.assertEquals(180, cart.getTotal());
+    }
+
+    @Test
     public void cartWith3A(){
         Cart cart = new Cart(promotions);
         cart.add(new CartItem(a,3));
