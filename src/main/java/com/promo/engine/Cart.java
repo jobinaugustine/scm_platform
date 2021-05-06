@@ -24,9 +24,7 @@ public class Cart {
     }
 
     public void applyPromotion(){
-        for(Promotion promotion: promotions){
-            promotion.apply(this);
-        }
+        promotions.stream().forEach(promotion -> promotion.apply(this));
     }
 
     public List<CartItem> getItems() {

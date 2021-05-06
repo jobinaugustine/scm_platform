@@ -31,6 +31,18 @@ public class CartWith2PromotionTest {
     }
 
     @Test
+    public void cartWith5A5B1C(){
+        Cart cart = new Cart(promotions);
+        cart.add(new CartItem(a,5));
+        cart.add(new CartItem(b,5));
+        cart.add(new CartItem(c,1));
+
+        cart.applyPromotion();
+
+        Assertions.assertEquals(370, cart.getTotal());
+    }
+
+    @Test
     public void cartWith1A1B1C(){
         Cart cart = new Cart(promotions);
         cart.add(new CartItem(a,3));
