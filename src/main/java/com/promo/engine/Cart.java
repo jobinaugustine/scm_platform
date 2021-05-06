@@ -24,7 +24,9 @@ public class Cart {
     }
 
     public void applyPromotion(){
-
+        for(Promotion promotion: promotions){
+            promotion.apply(this);
+        }
     }
 
     public List<CartItem> getItems() {
@@ -37,5 +39,13 @@ public class Cart {
 
     public double getDiscount() {
         return discount;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
     }
 }
