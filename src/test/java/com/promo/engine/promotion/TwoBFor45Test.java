@@ -1,5 +1,9 @@
-package com.promo.engine;
+package com.promo.engine.promotion;
 
+import com.promo.engine.Cart;
+import com.promo.engine.CartItem;
+import com.promo.engine.Promotion;
+import com.promo.engine.SKU;
 import com.promo.engine.promotion.ThreeAFor130;
 import com.promo.engine.promotion.TwoBsFor45;
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartWith2PromotionTest {
+public class TwoBFor45Test {
     SKU a = new SKU("A", 50);
     SKU b = new SKU("B", 30);
     SKU c = new SKU("C", 20);
@@ -21,7 +25,6 @@ public class CartWith2PromotionTest {
     @BeforeAll
     public static void setup(){
         promotions = new ArrayList<>();
-        promotions.add(new ThreeAFor130());
         promotions.add(new TwoBsFor45());
     }
 
@@ -31,26 +34,34 @@ public class CartWith2PromotionTest {
     }
 
     @Test
-    public void cartWith5A5B1C(){
+    public void cartWith1A1B1C(){
         Cart cart = new Cart(promotions);
-        cart.add(new CartItem(a,5));
-        cart.add(new CartItem(b,5));
+        cart.add(new CartItem(a,1));
+        cart.add(new CartItem(b,1));
         cart.add(new CartItem(c,1));
 
         cart.applyPromotion();
 
-        Assertions.assertEquals(370, cart.getTotal());
+        Assertions.assertEquals(100, cart.getTotal());
     }
 
     @Test
-    public void cartWith1A1B1C(){
+    public void cartWith2B(){
         Cart cart = new Cart(promotions);
-        cart.add(new CartItem(a,3));
-        cart.add(new CartItem(b,3));
-        cart.add(new CartItem(c,1));
+        cart.add(new CartItem(b,2));
 
         cart.applyPromotion();
 
-        Assertions.assertEquals(225, cart.getTotal());
+        Assertions.assertEquals(45, cart.getTotal());
+    }
+
+    @Test
+    public void cartWith5B(){
+        Cart cart = new Cart(promotions);
+        cart.add(new CartItem(b,5));
+
+        cart.applyPromotion();
+
+        Assertions.assertEquals(120, cart.getTotal());
     }
 }
