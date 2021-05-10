@@ -40,7 +40,7 @@ public class ThreeAFor130Test {
         cart.add(new CartItem(b,1));
         cart.add(new CartItem(c,1));
 
-        cart.applyPromotion();
+        cart.checkout();
 
         Assertions.assertEquals(100, cart.getTotal());
     }
@@ -52,7 +52,7 @@ public class ThreeAFor130Test {
         cart.add(new CartItem(b,1));
         cart.add(new CartItem(c,1));
 
-        cart.applyPromotion();
+        cart.checkout();
 
         Assertions.assertEquals(180, cart.getTotal());
     }
@@ -62,7 +62,7 @@ public class ThreeAFor130Test {
         Cart cart = new Cart(promotions);
         cart.add(new CartItem(a,3));
 
-        cart.applyPromotion();
+        cart.checkout();
 
         Assertions.assertEquals(130, cart.getTotal());
     }
@@ -72,7 +72,7 @@ public class ThreeAFor130Test {
         Cart cart = new Cart(promotions);
         cart.add(new CartItem(a,5));
 
-        cart.applyPromotion();
+        cart.checkout();
 
         Assertions.assertEquals(230, cart.getTotal());
     }

@@ -4,8 +4,6 @@ import com.promo.engine.Cart;
 import com.promo.engine.CartItem;
 import com.promo.engine.Promotion;
 import com.promo.engine.SKU;
-import com.promo.engine.promotion.ThreeAFor130;
-import com.promo.engine.promotion.TwoBsFor45;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TwoBFor45Test {
+public class CAndDFor30Test {
     SKU a = new SKU("A", 50);
     SKU b = new SKU("B", 30);
     SKU c = new SKU("C", 20);
@@ -25,7 +23,9 @@ public class TwoBFor45Test {
     @BeforeAll
     public static void setup(){
         promotions = new ArrayList<>();
+        promotions.add(new ThreeAFor130());
         promotions.add(new TwoBsFor45());
+        promotions.add(new CAndDFor30());
     }
 
     @BeforeEach
@@ -34,34 +34,15 @@ public class TwoBFor45Test {
     }
 
     @Test
-    public void cartWith1A1B1C(){
+    public void cartWith5A5B1C(){
         Cart cart = new Cart(promotions);
-        cart.add(new CartItem(a,1));
-        cart.add(new CartItem(b,1));
-        cart.add(new CartItem(c,1));
-
-        cart.checkout();
-
-        Assertions.assertEquals(100, cart.getTotal());
-    }
-
-    @Test
-    public void cartWith2B(){
-        Cart cart = new Cart(promotions);
-        cart.add(new CartItem(b,2));
-
-        cart.checkout();
-
-        Assertions.assertEquals(45, cart.getTotal());
-    }
-
-    @Test
-    public void cartWith5B(){
-        Cart cart = new Cart(promotions);
+        cart.add(new CartItem(a,3));
         cart.add(new CartItem(b,5));
+        cart.add(new CartItem(c,1));
+        cart.add(new CartItem(d,1));
 
         cart.checkout();
 
-        Assertions.assertEquals(120, cart.getTotal());
+        Assertions.assertEquals(280, cart.getTotal());
     }
 }

@@ -41,7 +41,7 @@ public class CartWith2PromotionTest {
         cart.add(new CartItem(b,5));
         cart.add(new CartItem(c,1));
 
-        cart.applyPromotion();
+        cart.checkout();
 
         Assertions.assertEquals(370, cart.getTotal());
     }
@@ -53,7 +53,7 @@ public class CartWith2PromotionTest {
         cart.add(new CartItem(b,3));
         cart.add(new CartItem(c,1));
 
-        cart.applyPromotion();
+        cart.checkout();
 
         Assertions.assertEquals(225, cart.getTotal());
     }
