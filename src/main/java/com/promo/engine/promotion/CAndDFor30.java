@@ -54,8 +54,8 @@ public class CAndDFor30 implements Promotion {
             discount = (totalC*priceC)+(totalD*priceD)- promotionTotal;
         }
 
-        logger.debug("ThreeAFor130 promotion total : [{}] " , promotionTotal);
-        logger.debug("ThreeAFor130 promotion discount : [{}]" , discount);
+        logger.debug("CAndDFor30 promotion total : [{}] " , promotionTotal);
+        logger.debug("CAndDFor30 promotion discount : [{}]" , discount);
 
         cart.setDiscount(discount);
         cart.setTotal(total-discount);

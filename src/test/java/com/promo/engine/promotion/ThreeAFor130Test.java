@@ -26,6 +26,8 @@ public class ThreeAFor130Test {
     public static void setup(){
         promotions = new ArrayList<>();
         promotions.add(new ThreeAFor130());
+        promotions.add(new CAndDFor30());
+        promotions.add(new TwoBsFor45());
     }
 
     @BeforeEach

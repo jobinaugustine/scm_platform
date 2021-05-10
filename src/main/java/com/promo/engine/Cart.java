@@ -23,8 +23,14 @@ public class Cart {
         return items;
     }
 
-    public void applyPromotion(){
+    private void applyPromotion(){
         promotions.stream().forEach(promotion -> promotion.apply(this));
+    }
+
+    public void checkout(){
+        applyPromotion();
+        System.out.println("Checkout completed: Total Amount to Pay : " + total);
+        System.out.println("Applied Promotion : " + discount);
     }
 
     public List<CartItem> getItems() {

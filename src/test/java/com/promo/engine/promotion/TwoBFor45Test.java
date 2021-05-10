@@ -25,7 +25,9 @@ public class TwoBFor45Test {
     @BeforeAll
     public static void setup(){
         promotions = new ArrayList<>();
+        promotions.add(new ThreeAFor130());
         promotions.add(new TwoBsFor45());
+        promotions.add(new CAndDFor30());
     }
 
     @BeforeEach

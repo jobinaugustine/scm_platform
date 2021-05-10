@@ -27,6 +27,7 @@ public class CartWith2PromotionTest {
         promotions = new ArrayList<>();
         promotions.add(new ThreeAFor130());
         promotions.add(new TwoBsFor45());
+        promotions.add(new CAndDFor30());
     }
 
     @BeforeEach
